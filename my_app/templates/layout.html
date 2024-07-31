@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{url_for('static', filename='styles/nav.css')}}">
+    <link rel="stylesheet"  href="{{url_for('static', filename='styles/container.css')}}">
+    {% if title%}
+        <title>CoinResearch -{{title}}</title>
+    {% else %}
+        <title>CoinResearch</title>
+    {% endif %}
+    
+</head>
+<body>
+    <div class="body_container">
+    <Nav class="nav">
+        <div class="logo">
+            <h3>logo</h3>
+
+        </div>
+        <div class="box">
+            {% if current_user.is_authenticated %}
+                <a href="{{url_for('logout')}}"><button>logout</button></a>
+                <a href="{{url_for('Account')}}"><button>accout</button></a>
+            {% else %}
+                <a href="{{url_for('login')}}"><button>login</button></a>
+                <a href="{{url_for('register')}}"><button>Register</button></a>
+            {% endif %}
+
+        </div>
+
+    </Nav>
+    <div class="body_container">
+        <h1>Crypto Listings</h1>
+        <table>
+            <tr>
+                <th><strong>number:</strong></th>
+                <th><strong>Symbol:</strong></th>
+                <th><strong>Price:</strong></th>
+            </tr>
+            
+            {% for coin in coins %}   
+                <tr>
+                    <td style="width: 10%;"><p> {{ coin.sn}}</p></td>
+                    <td><p> {{ coin.symbol }}</p></td>
+                    <td><p>${{ coin.quote.USD.price }}</p></td>    
+                </tr>
+        
+            {% endfor %}
+        </table>
+   </div>
+   
+    {% block content %} 
+    
+    {% endblock %}
+</div>
+</body>
+</html>

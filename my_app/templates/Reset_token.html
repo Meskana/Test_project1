@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="body_box">
+	<div class="contena">
+		<form method="POST">
+			{{form.hidden_tag()}}
+			<div class="form-group-box">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.error %}
+                    {{ form.password(class="is_invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.erros %}
+                            <span>{{ error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control") }}
+                {% endif %}	
+            </div>
+            <div class="form-group-box">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {% if form.confirm_password.error %}
+                    {{ form.confirm_password(class="is_invalid") }}
+                    <div class="feed_back">
+                        {% for error in form.confirm_password.erros %}
+                            <span>{{ error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="form-control") }}
+                {% endif %}	
+            </div>
+        </fieldset>
+        <div class="form-group-box">
+            {{ form.submit(class="btn")}}
+        </div>
+		</form>
+	</div>
+	
+</div>
+{% endblock body %}

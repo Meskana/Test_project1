@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{% block body %}
+	<div class="body_box">
+		<div class="contena">
+			<form method="POST">
+				{{form.hidden_tag()}}
+				<fieldset class="form-group">
+					<div class="form-group-box">
+						{{ form.username.label(class="form-control-label") }}
+						{% if form.username.error %}
+							{{ form.username(class="is_invalid") }}
+							<div class="feed_back">
+								{% for error in form.username.erros %}
+									<span>{{ error}}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.username(class="form-control") }}
+						{% endif %}	
+					</div>
+					<div class="form-group-box">
+                        {{ form.email.label(class="form-control-label") }}
+						{% if form.email.error %}
+							{{ form.email(class="is_invalid") }}
+							<div class="feed_back">
+								{% for error in form.email.erros %}
+									<span>{{ error}}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.email(class="form-control") }}
+						{% endif %}	
+                    </div>
+					<div class="form-group-box">
+                        {{ form.password.label(class="form-control-label") }}
+						{% if form.password.error %}
+							{{ form.password(class="is_invalid")}}
+							<div class="invalid-feedback">
+								{% for error in form.password.erros %}
+									<span>{{ error}}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.password(class="form-control") }}
+						{% endif %}	
+                    </div>
+					<div class="form-group-box">
+                    	{{ form.confirm_password.label(class="form-control-label") }}
+						{% if form.confirm_password.error %}
+							{{ form.confirm_password(class="is_invalid") }}
+							<div class="feed_back">
+								{% for error in form.confirm_password.erros %}
+									<span>{{ error}}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.confirm_password(class="form-control") }}
+						{% endif %}	
+					</div>
+				</fieldset>
+				<div class="form-group-box">
+					{{ form.submit(class="btn")}}
+				</div>
+			</form>
+			Already Have An Account? <a href="{{url_for('login')}}">Login</a>
+		</div>
+		
+	</div>	
+
+
+{% endblock %}

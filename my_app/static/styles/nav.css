@@ -1,0 +1,140 @@
+body{
+	font-family: 'lucida Sans','lucida Sans Regular','lucida Grande','lucida sans Unicode', Geneva, Verdana,Sans-serif;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	background-color: #1a493c;
+	color: white;
+}
+.body_container_nav{
+	width: 100%;
+	background-color: #15392F;
+	
+}
+.body_box{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+	display:flex;
+	justify-content:space-between;
+	background-color: #15392F;
+	padding: 1em;
+}
+.nav_logo{
+	display:flex;
+	justify-content:space-between;	
+}
+.nav_img{
+	height: 80px;
+	width: 200px;
+}
+.img_act{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+.bnt1, .bnt2{ 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+.bnt1{
+	background-color: #f7ad40;
+	border: none;
+}
+.bnt2{
+	background-color: #0057b309;
+	border: 1px solid #f7ad40;
+}
+.bnt1:hover {
+    background-color: #0057b309;
+	border: 1px solid #f7ad40;
+}
+.bnt2:hover {
+    background-color: #f7ad40;
+	border: ipx solid #0057b309;
+}
+.contena {
+    border: 1px solid #f7ad40;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-box {
+    margin-bottom: 20px;
+}
+
+.form-control-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #f7ad40;
+    outline: none;
+}
+
+.btn {
+    background-color: #f7ad40;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e89d35;
+}
+
+a {
+    color: #f7ad40;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .contena {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

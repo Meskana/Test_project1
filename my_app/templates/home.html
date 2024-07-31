@@ -1,0 +1,124 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="body_container">
+
+    <div class="box_container">
+        <div class="top_box">
+
+            <table class="box_table">
+                
+            </table>
+
+        </div>
+        <div class="top_box">
+            <table class="box_table">
+            </table>
+
+        </div>
+        <div class="top_box">
+            <table class="box_table">
+            </table>
+
+        </div>
+    </div>
+    <h2>Today's Cryptocurrency Prices by Market Cap</h2><br>
+    <p>The global crypto market cap is $2.45T, a 0.66% increase over the last day</p>
+
+    <table class="main_table">
+        <thead>
+            <tr>
+                <th style="width: 5%;"><strong>#</strong></th>
+                <th><strong>Symbol</strong></th>
+                <th><strong>Name</strong></th>
+                <th><strong>Price</strong></th>
+                <th><strong>1h%</strong></th>
+                <th><strong>24h%</strong></th>
+                <th><strong>7d%</strong></th>
+                <th><strong>Volum_24h</strong></th>
+            </tr>
+        </thead>
+        
+        {% for coin in coins %}  
+        <tbody>
+            <tr>
+                <td style="width: 5%;"><p> {{ coin.sn}}</p></td>
+                <td><img class="coin_png" src="https://s2.coinmarketcap.com/static/img/coins/64x64/{{ coin.id }}.png" alt="{{ coin.name }} Logo"> <span>{{ coin.symbol }}</span></td>
+                <td> <span>{{ coin.name }}</span></td>
+                <td><span>${{ coin.quote.USD.price }}</span></td>
+                <td><span>{{ '%.2f' | format(coin.quote.USD.percent_change_1h) }}%</span></td> 
+                <td><span>{{ '%.2f' | format(coin.quote.USD.percent_change_24h) }}%</span></td>
+                <td><span>{{ '%.2f' | format(coin.quote.USD.percent_change_7d) }}%</span></td>
+                <td><span>${{ coin.quote.USD.volume_24h }}</span></td>  
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <div class="table_button">
+        <div class="table_button_first">
+            Showing 1 - 100 out of 5000
+        </div>
+        
+
+    
+        <div class="table_button_second">
+            {% if page > 1 %}
+            <a href="{{ url_for('homepage', page=page-1) }}" class="table_button_second_1"><i class="bi bi-chevron-left"></i></a>
+            {% endif %}
+            {% set start_page = (page - 1) // limit * limit + 1 %}
+            {% set end_page = start_page + limit - 1 %}
+            {% for p in range(start_page, end_page + 1) %}
+                {% if p == page %}
+                    <strong>{{ p }}</strong>
+                {% else %}
+                    <a href="{{ url_for('homepage', page=p) }}" class="table_button_second_1">{{ p }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page < total_pages %}
+            <a href="{{ url_for('homepage', page=page+1) }}" class="table_button_second_1"><i class="bi bi-chevron-right"></i></a>
+            .....
+            {% endif %}
+            {% if end_page < total_pages %}
+            <a href="{{ url_for('homepage', page=end_page+1) }}" class="table_button_second_1"><i class="bi bi-chevron-double-right"></i></a>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+
+<div class="Totop">
+    <a href="#topbar" class="top_btn"><i class="bi_fix bi-chevron-double-up"></i></a>
+</div>
+
+<div class="footer">
+    <div class="footer_box">
+        <div class="footer_first">
+            <a href="{{url_for('homepage')}}"><img class="nav_img" src="{{ url_for('static', filename='Images/logo2.png') }}" alt="Logo"></a><br>
+            <p>CoinResearch provides a fundamental analysis of the crypto market. In addition to tracking price,
+            volume and market capitalisation, CoinResearch tracks community growth, 
+            open-source code development, major events and on-chain metrics.</p>
+
+        </div>
+        <div class="footer_second">
+            <h5> social links</h5><br>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter-x"></i>
+            <i class="bi bi-discord"></i>
+
+        </div>
+    </div>
+    <p>© 2024 CoinResearch. All Rights Reserved.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

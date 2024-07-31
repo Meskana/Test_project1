@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="body_box">
+	<div class="contena">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <span>{{ message }}</span>
+                {% endfor %}
+            {% endif%}
+        {% endwith %}
+		<form method="POST">
+			{{form.hidden_tag()}}
+			<fieldset class="form-group">
+				
+				<div class="form-group-box">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control") }}
+                </div>
+		
+			</fieldset>
+			<div class="form-group-box">
+			{{ form.submit(class="btn")}}
+			</div>
+            
+		</form>
+	</div>
+	
+</div>
+{% endblock body %}
+

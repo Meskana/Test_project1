@@ -1,0 +1,141 @@
+*{
+	box-sizing: border-box;
+}
+.body_container{
+	width: 98%;
+	justify-content: center;
+	margin: auto;
+}
+table thead{
+	text-align: center;
+	padding: 2rem;
+}
+table thead th{
+	border-top: 1px solid #f7ae4017;
+	padding: 2rem;
+	text-align: left;
+}
+table tbody td{
+	border-top: 1px solid #f7ae4017;
+	padding: 1rem;
+	
+}
+table tbody td span{
+	font-weight: bold;
+
+}
+.coin_png{
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+}
+
+/* this is were my box container start */
+
+.box_container{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.top_box{
+	height: 15rem;
+	margin: auto;
+	width: 33%;
+	background-color: #10221d;
+	border-radius: 15px;
+}
+
+
+/* checking for feed back   */
+
+.form-group-box {
+    margin-bottom: 1rem;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+}
+
+.form-control {
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-control-label {
+    font-weight: bold;
+}
+
+/*  this is where my Table button start       */
+.table_button{
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-around;
+	font-size: large;
+	font-weight: bold;
+}
+.table_button_second_1{
+	margin-left: 10px;
+	margin-right: 10px;
+	transition: 0.6s;
+}
+.table_button_second_1:hover{
+	text-decoration: none;
+	color: white;
+	font-size: large;
+	font-weight: bold;
+	transition: 0.6s;
+}
+
+/*  footer */
+
+.footer{
+	border-top: 1px solid #f7ae4017;
+	margin-top: 2rem;
+	background-color: #1a493c;
+	width: 100%;
+}
+.footer_box{
+	display: flex;
+	justify-content: space-between;
+	padding: 3rem 1rem;
+}
+.footer_first{
+	width: 50%;
+}
+.footer_second{
+	text-align: center;
+	
+}
+
+
+
+/* To the top of the page */
+
+.Totop{
+	display: flex;
+	justify-content: flex-end;
+	
+}
+.bi_fix{
+	font-size: large;
+	color: white;
+	padding: 1rem;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	border-radius: 60px;
+	background-color: #06110e5e;
+	
+}
+.bi_fix:hover{
+	background-color: #06110e8e;
+	text-decoration: none;
+	color: #f7ad40;
+}
